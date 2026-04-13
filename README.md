@@ -12,20 +12,24 @@
 challenge/
 ├── README.md                          ← this file
 ├── ANSWERS.md                         ← fill in your written answers
-├── part1_diagnosis/
-│   ├── user_list_viewmodel.dart       ← 1.1
-│   ├── http_error_interceptor.dart    ← 1.2
-│   └── organisation_service.dart     ← 1.3
-└── part2_implementation/
-    ├── notifications/
-    │   ├── notifications_api.dart       ← API interface (do not modify)
-    │   ├── notification.dart            ← model (do not modify)
-    │   ├── notifications_view_model.dart ← IMPLEMENT HERE (states)
-    │   ├── notifications_cubit.dart     ← IMPLEMENT HERE (cubit)
-    │   └── notifications_page.dart      ← IMPLEMENT HERE (screen)
-    └── rate_limit/
-        ├── interceptor_contract.dart  ← base interface (do not modify)
-        └── http_rate_limit_interceptor.dart  ← IMPLEMENT HERE
+├── pubspec.yaml
+├── lib/
+│   ├── main.dart                      ← runnable app entry (GetIt + BlocProvider)
+│   ├── fake_notifications_api.dart    ← sample API impl for running locally
+│   └── part2_implementation/
+│       ├── notifications/
+│       │   ├── notifications_api.dart       ← API interface (do not modify)
+│       │   ├── notification.dart            ← model (do not modify)
+│       │   ├── notifications_view_model.dart ← IMPLEMENT HERE (states)
+│       │   ├── notifications_cubit.dart     ← IMPLEMENT HERE (cubit)
+│       │   └── notifications_page.dart      ← IMPLEMENT HERE (screen)
+│       └── rate_limit/
+│           ├── interceptor_contract.dart  ← base interface (do not modify)
+│           └── http_rate_limit_interceptor.dart  ← IMPLEMENT HERE
+└── part1_diagnosis/
+    ├── user_list_viewmodel.dart       ← 1.1
+    ├── http_error_interceptor.dart    ← 1.2
+    └── organisation_service.dart     ← 1.3
 ```
 
 ---
@@ -104,7 +108,7 @@ Using the three files from Part 1, point out where the intended architecture bou
 
 ### 2.1 — Notifications
 
-Implement across the three files in `part2_implementation/notifications/`:
+Implement across the three files in `lib/part2_implementation/notifications/`:
 
 - **`notifications_view_model.dart`** — sealed state hierarchy (`NotificationsState` and subclasses)
 - **`notifications_cubit.dart`** — `NotificationsCubit` logic
@@ -122,7 +126,7 @@ Implement across the three files in `part2_implementation/notifications/`:
 The screen does not need to be elaborate — a `Column` with a list and an error banner is fine.  
 Register the Cubit in the locator (add the snippet to `ANSWERS.md`; if your package does not include `locator.dart`, provide a hypothetical snippet consistent with your architecture).
 
-### 2.2 — `part2_implementation/rate_limit/http_rate_limit_interceptor.dart`
+### 2.2 — `lib/part2_implementation/rate_limit/http_rate_limit_interceptor.dart`
 
 Implement `HttpRateLimitInterceptor` with the following requirements:
 

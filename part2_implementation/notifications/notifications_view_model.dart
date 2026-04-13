@@ -1,9 +1,17 @@
-// ignore_for_file: unused_import
-import 'notification.dart';
+import 'notification.dart' as notification_model;
 
-// TODO: define the sealed state hierarchy for NotificationsCubit here
-//
-// Expected states:
-//   - initial loading
-//   - loaded (list of notifications)
-//   - error (after 3 consecutive poll failures)
+sealed class NotificationsState {}
+
+class NotificationsLoading extends NotificationsState {}
+
+class NotificationsLoaded extends NotificationsState {
+  final List<notification_model.Notification> notifications;
+
+  NotificationsLoaded(this.notifications);
+}
+
+class NotificationsError extends NotificationsState {
+  final String message;
+
+  NotificationsError(this.message);
+}
